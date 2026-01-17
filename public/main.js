@@ -43,7 +43,7 @@ var win = false
 
 function setup(){
     createCanvas(600, 600)
-    socket = io.connect('http://10.20.34.117:3000/')
+    socket = io.connect()
     socket.on('update', dataLoading)
     socket.on('playertag', playerIdMaker)
 
