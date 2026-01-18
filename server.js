@@ -24,6 +24,19 @@ function newConnection(socket){
     function ClientMsg(data) {
         socket.broadcast.emit('update', data)
     }
+
+    socket.on('disconnect', function() {
+        // Remove the disconnected socket from playerindex
+        var index = playerindex.indexOf(socket.id);
+        if (index > -1) {
+            playerindex.splice(index, 1);
+        }
+        
+        // If no players are connected, reset all players
+        if (playerindex.length === 0) {
+            io.sockets.emit('resetPlayers');
+        }
+    });
 }   
 
 

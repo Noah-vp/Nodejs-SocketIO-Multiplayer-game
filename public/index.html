@@ -1,39 +1,31 @@
 <html>
   <head>
+    <script src="lib/p5.js"></script>
+
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
-
-    <img id = "image"src="assets/Banner.png" alt="banner" width = 90% >
-    <img id = 'button'src="assets/button.png" alt="button" onclick="location.href='game.html'">
-
-  </p>
-    
-
-
-
-
-
-
-
-<style>
-  body{
-    background-color: #7693B3;
-  }
-  #button{
-    margin: 0;
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    cursor: pointer
-  } 
-  #image{
-    margin-left: 5%;
-  }
-</style>
+    <script src="main.js"></script>
+    <script src="player.js"></script>
+    <script src="object.js"></script>
+    <script src="networkDraw.js"></script>
   </head>
   <body>
     <main>
     </main>
   </body>
+  <style>
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    background-color: #7693B3;
+    margin: 0;
+    display: flex;
+  
+    /* This centers our sketch horizontally. */
+    justify-content: center;
+  
+    /* This centers our sketch vertically. */
+    align-items: center;
+  }</style>
 </html>

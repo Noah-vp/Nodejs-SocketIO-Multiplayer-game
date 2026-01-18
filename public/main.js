@@ -46,6 +46,7 @@ function setup(){
     socket = io.connect()
     socket.on('update', dataLoading)
     socket.on('playertag', playerIdMaker)
+    socket.on('resetPlayers', resetAllPlayers)
 
     player = new Character()
     objects.push(new Obj('ground', -1000, 550, 2000, 0))
@@ -99,6 +100,20 @@ function playerIdMaker(users) {
         else{
             role = 'spectator'}
     }
+}
+
+//function to reset all players when no one is connected
+function resetAllPlayers() {
+    // Reset all networkItems to their initial state
+    for(i = 0; i < networkItems.length; i++){
+        networkItems[i].x = 0;
+        networkItems[i].y = -100;
+        networkItems[i].state = 'idle';
+        networkItems[i].faceing = 'right';
+        networkItems[i].hp = 3;
+    }
+    // Reset win state
+    win = false;
 }
 //function to load incomming data
 function dataLoading(data){
